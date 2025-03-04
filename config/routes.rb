@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+       post  '/auth/user-signup', to: 'users#create'
+       post  '/auth/organizer-signup', to: 'event_organizers#create'
+       post  '/auth/user-login', to: 'authentication#user_login'
+       post  '/auth/organizer-login', to: 'authentication#organizer_login'
+       get   '/users/:id', to: 'users#show'
+       get   '/event_organizers/:id', to: 'users#show'
 end

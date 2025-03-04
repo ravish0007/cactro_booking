@@ -1,0 +1,19 @@
+meta {
+  name: organizer login
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:3000/auth/user-login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+  
+    "email": "dome@gmail.com",
+    "password": "password123"
+  }
+}

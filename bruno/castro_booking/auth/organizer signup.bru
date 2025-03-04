@@ -1,0 +1,21 @@
+meta {
+  name: organizer signup
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/auth/organizer-signup
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+  
+   "name": "sam",
+    "phone": "1234567890",
+    "email": "dome@gmail.com",
+    "password": "password123"
+  }
+}
