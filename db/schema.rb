@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_04_042433) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_04_050111) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "ticket_id", null: false
+    t.index ["ticket_id"], name: "index_bookings_on_ticket_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "event_organizers", force: :cascade do |t|
@@ -34,6 +38,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_04_042433) do
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "event_organizer_id", null: false
+    t.index ["event_organizer_id"], name: "index_events_on_event_organizer_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -42,6 +48,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_04_042433) do
     t.integer "availability"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "event_id", null: false
+    t.index ["event_id"], name: "index_tickets_on_event_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,4 +59,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_04_042433) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "bookings", "tickets"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "events", "event_organizers"
+  add_foreign_key "tickets", "events"
 end
