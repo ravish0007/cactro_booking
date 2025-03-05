@@ -6,6 +6,21 @@ meta {
 
 post {
   url: http://localhost:3000/tickets
-  body: none
-  auth: none
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwicm9sZSI6Ik9SR0FOSVpFUiIsImV4cCI6MTc0MTc0OTczMn0.BgKARNk_f04-yPK2vsW1t_HQ844iefIaiWXPwd4OoV8
+}
+
+body:json {
+  {
+    "event_id": 2,
+    "type": "VIP",
+    "price": 6,
+    "availability": 7,
+    "remaining": 7
+    
+  }
 }

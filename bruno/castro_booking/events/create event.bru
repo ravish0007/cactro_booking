@@ -6,6 +6,20 @@ meta {
 
 post {
   url: http://localhost:3000/events
-  body: none
-  auth: none
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwicm9sZSI6Ik9SR0FOSVpFUiIsImV4cCI6MTc0MTc0NjIzNX0.nvdaHw3yv5s1kMIedPsBujEg_F6MJgSI9RkM-UeeSzY
+}
+
+body:json {
+  {
+    
+    "name": "Tutoring",
+    "venue": "bangalore",
+    "date": "2025-03-05T02:25:06.552Z"
+    
+  }
 }
