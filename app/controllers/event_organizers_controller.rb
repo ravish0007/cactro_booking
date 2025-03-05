@@ -18,16 +18,11 @@ class EventOrganizersController < ApplicationController
 
   private 
 
-  def verify_organizer_role
-    verify_role('ORGANIZER')
-  end
-
   def event_organizer_params
     params.permit(:name, :email, :password, :phone)
   end
 
   def find_organizer
-    puts "helloworld"
     @event_organizer = EventOrganizer.find(params[:id])
   end
 end

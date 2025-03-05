@@ -13,7 +13,7 @@ class ApplicationController < ActionController::API
         @decoded = JwtToken.decode(token)
         @role = @decoded[:role]
         if @role == 'ORGANIZER'
-          @organizer = EventOrganizer.find(@decoded[:id])
+          @event_organizer = EventOrganizer.find(@decoded[:id])
         elsif @role == 'USER'
           @user = User.find(@decoded[:id])
         end
@@ -28,4 +28,11 @@ class ApplicationController < ActionController::API
       end
     end
 
+    def verify_user_role
+      verify_role('USER')
+    end
+
+    def verify_organizer_role
+      verify_role('ORGANIZER')
+    end
 end

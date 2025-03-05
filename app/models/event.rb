@@ -3,5 +3,5 @@ class Event < ApplicationRecord
   belongs_to :event_organizer
   validates :name, presence: true
   validates :venue, presence: true
-  validates :date, presence: true
+  validates :date, presence: true, timeliness: { type: :datetime }
 end

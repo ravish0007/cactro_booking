@@ -18,10 +18,6 @@ class UsersController < ApplicationController
 
   private 
 
-  def verify_user_role
-    verify_role('USER')
-  end
-
   def user_params
     params.permit(:name, :email, :password, :phone)
   end

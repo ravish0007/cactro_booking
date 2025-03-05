@@ -294,6 +294,7 @@ GEM
     thruster (0.1.11-arm64-darwin)
     thruster (0.1.11-x86_64-darwin)
     thruster (0.1.11-x86_64-linux)
+    timeliness (0.5.2)
     timeout (0.4.3)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -302,6 +303,9 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.3)
     useragent (0.16.11)
+    validates_timeliness (8.0.0)
+      activemodel (>= 8.0.0, < 9)
+      timeliness (>= 0.3.10, < 1)
     websocket-driver (0.7.7)
       base64
       websocket-extensions (>= 0.1.0)
@@ -332,12 +336,15 @@ DEPENDENCIES
   puma (>= 5.0)
   rack-cors
   rails (~> 8.0.1)
+  rubocop (~> 1.73)
+  rubocop-rails (~> 2.30)
   rubocop-rails-omakase
   solid_cable
   solid_cache
   solid_queue
   thruster
   tzinfo-data
+  validates_timeliness
 
 BUNDLED WITH
    2.6.0

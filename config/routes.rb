@@ -13,4 +13,7 @@ Rails.application.routes.draw do
        post  '/auth/organizer-login', to: 'authentication#organizer_login'
        get   '/users/:id', to: 'users#show'
        get   '/event_organizers/:id', to: 'event_organizers#show'
+       resources :events
+       resources :tickets
+       resources :bookings
 end
