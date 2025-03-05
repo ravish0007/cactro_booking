@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
       if ticket.remaining > 0
         ticket.update!(remaining: ticket.remaining - 1)
         Booking.create!(user: @user, ticket: ticket)
+        EmailConfirmationJob.perform_later(@user, ticket)
         render json: { message: "Booking created successfully" }, status: :created
       else
         render json: {errors: 'tickets sold out'}, status: :unprocessable_entity

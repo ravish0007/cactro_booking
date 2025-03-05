@@ -23,6 +23,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
+      EmailEventUpdateJob.perform_later(@event)
       render json: @event
     else
       render json: { errors: @event.errors.full_messages }, status: :unprocessable_entity
