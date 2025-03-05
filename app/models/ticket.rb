@@ -5,5 +5,7 @@ class Ticket < ApplicationRecord
   validates :price, presence: true
   validates :availability, presence: true
   validates :remaining, presence: true
+  validates :remaining, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: :availability }
+  validates :availability, numericality: { greater_than_or_equal_to: 0 }
 end
 

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user, only: [:create]
-  before_action :find_user, :verify_role, except: [:create]
+  before_action  :find_user, :verify_user_role, except: [:create]
 
   def create
     @user = User.new(user_params)
@@ -18,8 +18,8 @@ class UsersController < ApplicationController
 
   private 
 
-  def verify_role
-    @role == 'USER'
+  def verify_user_role
+    verify_role('USER')
   end
 
   def user_params
