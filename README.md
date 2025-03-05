@@ -23,3 +23,7 @@ rails server
 ## Schema Diagram
 
 ![Alt Text](https://raw.githubusercontent.com/ravish0007/cactro_booking/main/public/schema.jpg)
+
+## APIs
+
+bruno folder contains files to load up in bruno API client
