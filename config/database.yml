@@ -13,7 +13,7 @@
 # gem "pg"
 #
 default: &default
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -21,13 +21,13 @@ default: &default
 
 development:
   <<: *default
-  database: cactro_booking_development
+  database: db/cactro_booking_development.sqlite3
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: cactro
+  # username: cactro
 
   # The password associated with the PostgreSQL role (username).
   #password:
@@ -35,11 +35,11 @@ development:
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  host: localhost
+  # host: localhost
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  port: 5432
+  # port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -55,7 +55,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: cactro_booking_test
+  database: db/cactro_booking_test.sqlite3
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,18 +80,18 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: cactro_booking_production
-    username: cactro_booking
-    password: <%= ENV["CACTRO_BOOKING_DATABASE_PASSWORD"] %>
+    database: db/cactro_booking_production.sqlite3
+    # username: cactro_booking
+    # password: <%= ENV["CACTRO_BOOKING_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
-    database: cactro_booking_production_cache
+    database: db/cactro_booking_production_cache.sqlite3
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: cactro_booking_production_queue
+    database: db/cactro_booking_production_queue.sqlite3
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: cactro_booking_production_cable
+    database: db/cactro_booking_production_cable.sqlite3
     migrations_paths: db/cable_migrate
