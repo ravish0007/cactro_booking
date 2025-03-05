@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Run localy
 
-Things you may want to cover:
+- spins up postgresql
 
-* Ruby version
+```
+docker compose up -d
+```
 
-* System dependencies
+- install dependencies
 
-* Configuration
+```
+bundle install
+```
 
-* Database creation
+- run rails server
 
-* Database initialization
+```
+rails server
+```
 
-* How to run the test suite
+## Schema Diagram
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Alt Text](https://raw.githubusercontent.com/ravish0007/cactro_booking/main/public/schema.jpg)
